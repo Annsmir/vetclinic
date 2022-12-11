@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="ru">
+<head>
+    <title>О нас</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        h4 {
+            padding-top: 15px;
+        }
+        h3 {
+            padding: 20px;
+        }
+        .alert.alert-info.mt-2 {
+            padding: 30px;
+        }
+        .end-image{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<main>
+    <div class="container mt-5">
+        <h1 style="padding-bottom: 20px;">Полный спектр услуг</h1>
+        <div class="alert alert-info mt-2">
+            <p>
+                Ветеринарная клиника «VitaMed» — это современная клиника, в которой можно сделать все необходимые виды исследований, для того, чтобы оказывать качественную и эффективную ветеринарную помощь вашему питомцу.
+            </p>
+            <p>
+                Все специалисты клиники постоянно повышают свою квалификацию, посещая конгрессы, конференции, мастер-классы, стажировки и специализированные курсы.
+            </p>
+        </div>
+        <h1 style="padding-bottom: 20px;">Связаться с нами</h1>
+        <div class="alert alert-info mt-2">
+            <p>
+                Если Вы хотите связаться с нами или записаться на прием, позвоните нам по телефону +7-499-123-12-11 или опишите Вашу проблему в WhatsApp +7-926-426-10-55.
+            </p>
+            <p>
+                Напишите на на почту VitaMed@yandex.ru
+            </p>
+            <p>
+                Наши клиники расположены по адресам:
+                <br><br>
+                г. Москва, ул. Нагатинская набережная, дом 54, строение 2
+                <br>
+                г. Москва, ул. Авиационная, дом 21
+            </p>
+        </div>
+        <h1 style="padding-bottom: 20px;">Наши партнеры</h1>
+        <div class="alert alert-info mt-2">
+            <p>
+                Ветеринарная клиника «VitaMed» обладает 12-летним опытом успешной работы в сфере современной ветеринарной медицины. На протяжении этого периода мы провели более 3500 операций разного уровня сложности, которые провели высококвалифицированные специалисты с высшим профильным образованием. Каждый специалист нашей клиники – это ответственный врач, который в совершенстве владеет современными методами клинических и лабораторных исследований, что позволяют проводить высокоточную диагностику даже самых сложных заболеваний.
+            </p>
+        </div>
+        <div class="end-image" style="padding-top: 20px;">
+            <img src="" th:src="@{/images/welcome.jpg}" alt="welcome">
+        </div>
+
+    </div>
+</main>
+
+<footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title>Все записи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <div th:each="el : ${visit}" class="alert alert-info mt-2">
+        <h3 th:text="${el.visitDate}"></h3>
+        <h5 th:text="${el.visitSymptoms}"></h5>
+        <h5 th:text="'Результаты анализов и доп. исследования: ' +${el.testResults}"></h5>
+        <h5 th:text="'Визит №' + ${el.visitNumber}"></h5>
+        <h5 th:text="'Пациент №' + ${el.patient_PatientCode}"></h5>
+        <h5 th:text="'Препарат №' + ${el.drug_DrugCode}"></h5>
+        <h5 th:text="'Диагноз №' + ${el.diagnosis_DiagnosisCode}"></h5>
+        <h5 th:text="'Доктор №' + ${el.doctor_DoctorCode}"></h5>
+        <div th:if="${dellForm != 'unauth'}">
+            <a th:href="'/visit/' + ${el.visitCode} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+            <form th:action="'/visit/' + ${el.visitCode} + '/remove'" method="post">
+              <button class="btn btn-warning" type="submit">Удалить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

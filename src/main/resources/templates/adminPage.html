@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Административная страница</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("moreless");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function myFunction1() {
+        var x = document.getElementById("moreless1");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function myFunction2() {
+        var x = document.getElementById("moreless2");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function myFunction3() {
+        var x = document.getElementById("moreless3");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+<h1 style="padding-bottom: 20px; padding-left: 150px;">Диагнозы</h1>
+<button class="btn btn-warning" style="margin-left: 150px" onclick="myFunction()">Свернуть/Развернуть</button>
+<div id="moreless" class="container mt-5">
+    <div th:each="el : ${diagnoses}" class="alert alert-info mt-2">
+        <h3 th:text="'ID диагноза #' + ${el.diagnosisCode}"></h3>
+        <h5 th:text="'Наименование диагноза: ' + ${el.diagnosisName}"></h5>
+        <h5 th:text="'Рекомендации препарата: '+ ${el.drugRecommendation}"></h5>
+        <h5 th:text="'Рекомендации по лечению: '+ ${el.treatmentRecommendation}"></h5>
+        <form th:action="'/diagnosis/' + ${el.diagnosisCode} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+<a th:href="'/diagnosisAdd'" style="margin-left: 150px" class="btn btn-warning">Добавить</a>
+
+<h1 style="padding-bottom: 20px; padding-left: 150px; padding-top: 20px">Препараты</h1>
+<button class="btn btn-warning" style="margin-left: 150px" onclick="myFunction1()">Свернуть/Развернуть</button>
+<div id="moreless1" class="container mt-5">
+    <div th:each="el : ${drugs}" class="alert alert-info mt-2">
+        <h3 th:text="'ID препарата #' + ${el.drugCode}"></h3>
+        <h5 th:text="'Наименование препарата: ' + ${el.drugName}"></h5>
+        <h5 th:text="'Дозировка: '+ ${el.drugDosage}"></h5>
+        <h5 th:text="'Страна-производитель: '+ ${el.drugManufacturer}"></h5>
+        <h5 th:text="'Противопоказания: '+ ${el.drugContraindications}"></h5>
+        <h5 th:text="'Указания по применению: '+ ${el.drugUseTime}"></h5>
+        <h5 th:text="'Побочные действия: '+ ${el.drugSideEffects}"></h5>
+        <form th:action="'/drug/' + ${el.drugCode} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+<a th:href="'/drugAdd'" style="margin-left: 150px" class="btn btn-warning">Добавить</a>
+
+<h1 style="padding-bottom: 20px; padding-left: 150px; padding-top: 20px">Хозяева животных</h1>
+<button class="btn btn-warning" style="margin-left: 150px" onclick="myFunction2()">Свернуть/Развернуть</button>
+<div id="moreless2" class="container mt-5">
+    <div th:each="el : ${owners}" class="alert alert-info mt-2">
+        <h3 th:text="'ID хозяина #' + ${el.ownerCode}"></h3>
+        <h5 th:text="'ФИ хозяина: ' + ${el.ownerName}"></h5>
+        <h5 th:text="'Контактный телефон хозяина: '+ ${el.ownerTelephone}"></h5>
+    </div>
+</div>
+<a th:href="'/ownerAdd'" style="margin-left: 150px" class="btn btn-warning">Добавить</a>
+
+<h1 style="padding-bottom: 20px; padding-left: 150px; padding-top: 20px">Категории животных</h1>
+<button class="btn btn-warning" style="margin-left: 150px" onclick="myFunction3()">Свернуть/Развернуть</button>
+<div id="moreless3" class="container mt-5">
+    <div th:each="el : ${animals}" class="alert alert-info mt-2">
+        <h3 th:text="'ID категории животного #' + ${el.animalCategory}"></h3>
+        <h5 th:text="'Наименование категории: ' + ${el.animalCategoryName}"></h5>
+        </form>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

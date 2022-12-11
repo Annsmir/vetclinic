@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="../static/css/homestyle.css" th:href="@{/css/homestyle.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            padding: 0;
+            font-family: 'Rubik Puddles', cursive;
+            font-size: 100px;
+            font-weight: bold;
+            color: #c0729a;
+        }
+        .flex-title{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header th:insert="blocks/header :: header"></header>
+
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="flex-title mx-auto">
+                    <h1 class="fw-light">VITAmed clinics</h1><br>
+                    <h4 class="fw-light" style="padding: 0;">С заботой о самом главном</h4><br>
+                    <div class="alert alert-info mt-2">
+                        <p>
+                            Мы всегда готовы оказать квалифицированную помощь Вашему питомцу. Персонал клиники сделает все необходимое, чтобы Вы остались довольны визитом к нам!
+                        </p>
+                        <p>
+                            Мы лечим собак, кошек, птиц, грызунов и другие виды животных.
+                        </p>
+                    </div>
+                    <img src="https://slonimoskavl.ru/images/slider/1.jpeg">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer th:insert="blocks/footer :: footer"></footer>
+
+</body>
+</html>

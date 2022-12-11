@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Добавить пациента</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 ">
+    <div><h1 style="padding-bottom: 20px;">Карточка пациента</h1></div>
+    <form action="/patientAdd" th:object="${patient}" method="post">
+        <input type="hidden" th:field="*{PatientCode}" th:value="${patient.PatientCode}" />
+        <input type="text" th:field="*{PatientName}" name="PatientName" placeholder="Кличка пациента" class="form-control"><br>
+        <input type="text" th:field="*{PatientBirthday}" name="PatientBirthday" placeholder="Дата рождения пациента" class="form-control"><br>
+        <input type="number" th:field="*{PatientCardNumber}" name="PatientCardNumber" placeholder="Номер карты" class="form-control"><br>
+        <input type="text" th:field="*{PatientBreed}" name="PatientBreed" placeholder="Порода" class="form-control"><br>
+        <input type="text" th:field="*{PatientSex}" name="PatientSex" placeholder="Пол" class="form-control"><br>
+
+        <div>Категория животного:</div><br>
+        <select th:field="*{animalAnimalCategory}" class="form-control">
+            <th:block th:each="el : ${listAnimals}">
+                <option th:text="${el.animalCategoryName}" th:value="${el.animalCategory}"/>
+            </th:block>
+        </select>
+
+        <br>
+        <div>Телефон хозяина:</div><br>
+        <select th:field="*{ownerOwnerCode}" class="form-control">
+            <th:block th:each="el : ${listOwners}">
+                <option th:text="${el.ownerTelephone}" th:value="${el.ownerCode}"/>
+            </th:block>
+        </select>
+
+        <button style="margin-top: 20px" type="submit" class="btn btn-success">Добавить пациента</button>
+    </form>
+</div>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

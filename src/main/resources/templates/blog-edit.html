@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="ru">
+<head>
+    <title>Редактировать запись</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 ">
+    <h1>Редактирование информации</h1>
+    <div th:each="el : ${visit}">
+        <form method="post">
+
+            <input type="text" th:value="${el.VisitDate}" name="VisitDate" placeholder="YYYY-MM-DD" class="form-control"><br>
+            <textarea name="VisitSymptoms" placeholder="Укажите симптомы и жалобы" class="form-control" th:text="${el.VisitSymptoms}"></textarea><br>
+            <textarea name="TestResults" placeholder="Результаты тестов" class="form-control" th:text="${el.TestResults}"></textarea><br>
+            <input type="number" th:value="${el.VisitNumber}" name="VisitNumber" placeholder="Номер визита" class="form-control"><br>
+            <input type="number" th:value="${el.Patient_PatientCode}" name="Patient_PatientCode" placeholder="Код пациента" class="form-control"><br>
+            <input type="number" th:value="${el.Drug_DrugCode}" name="Drug_DrugCode" placeholder="Код препарата" class="form-control"><br>
+            <input type="number" th:value="${el.Diagnosis_DiagnosisCode}" name="Diagnosis_DiagnosisCode" placeholder="Код диагноза" class="form-control"><br>
+            <input type="number" th:value="${el.Doctor_DoctorCode}" name="Doctor_DoctorCode" placeholder="Код врача" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Обновить</button>
+        </form>
+    </div>
+</div>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

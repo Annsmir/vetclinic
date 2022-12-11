@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Наши врачи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1 style="padding-bottom: 20px;">Врачи нашей клиники</h1>
+    <div th:each="el : ${doctors}" class="alert alert-info mt-2">
+        <h3 th:text="'ID доктора #' + ${el.doctorCode}"></h3>
+        <h5 th:text="'ФИ доктора: ' + ${el.doctorSurname} + ' ' + ${el.doctorName}"></h5>
+        <h5 th:text="'Специальность доктора: '+ ${el.specialitySpecialityCode.specialityName}"></h5>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

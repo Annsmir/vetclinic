@@ -1,0 +1,22 @@
+<header th:fragment="header"
+        class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-body border-bottom shadow-sm"
+        xmlns:th="http://www.w3.org/1999/xhtml"
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <div class="menu">
+        <a href="/" style="padding-right: 30px"><img th:src="@{/images/logo.png}" alt="logo"></a>
+        <nav class="my-2 my-md-0 me-md-3">
+            <a class="p-2" href="/">Главная</a>
+            <a class="p-2" href="/visit" th:if="${allVisits!='unauth'}" th:text="${allVisits}" style="margin-right: 0;"></a>
+            <a class="p-2" href="/add" th:if="${addNews!='unauth'}" th:text="${addNews}" style="margin-right: 0;" ></a>
+            <a class="p-2" href="/adminPage" th:if="${adminPage!='unauth'}" th:text="${adminPage}" style="margin-right: 0;" ></a>
+            <a class="p-2" href="/showAllPets" th:if="${showAllPets!='unauth'}" th:text="${showAllPets}" style="margin-right: 0;" ></a>
+            <a class="p-2" href="/showMyPets" th:if="${showMyPets!='unauth'}" th:text="${showMyPets}" style="margin-right: 0;" ></a>
+            <a class="p-2" href="/about">О нас</a>
+            <a class="p-2" href="/doctors">Наши врачи</a>
+        </nav>
+        <form class="p-2" sec:authorize="isAnonymous()" action="/auth/login">
+            <button id="logout" type="submit" style="background: white; color: #444444 ">Войти</button>
+        </form>
+        <div class="p-2" th:if="${userShow!='unauth'}" th:text="${userShow}" style="margin-right: 0; color: whitesmoke; " ></div>
+    </div>
+</header>

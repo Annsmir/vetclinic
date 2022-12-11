@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="ru">
+<head>
+    <title>Добавить запись</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+    <div class="container mt-5 ">
+        <h1 style="padding-bottom: 20px;">Добавить запись</h1>
+        <form action="/add" method="post">
+            <input type="text" name="VisitDate" placeholder="YYYY-MM-DD" class="form-control"><br>
+            <textarea name="VisitSymptoms" placeholder="Укажите симптомы и жалобы" class="form-control"></textarea><br>
+            <textarea name="TestResults" placeholder="Результаты тестов" class="form-control"></textarea><br>
+            <input type="number" name="VisitNumber" placeholder="Номер визита" class="form-control"><br>
+            <input type="number" name="Patient_PatientCode" placeholder="Код пациента" class="form-control"><br>
+            <input type="number" name="Drug_DrugCode" placeholder="Код препарата" class="form-control"><br>
+            <input type="number" name="Diagnosis_DiagnosisCode" placeholder="Код диагноза" class="form-control"><br>
+            <input type="number" name="Doctor_DoctorCode" placeholder="Код врача" class="form-control"><br>
+            <button type="submit" class="btn btn-success">Добавить запись</button>
+        </form>
+    </div>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

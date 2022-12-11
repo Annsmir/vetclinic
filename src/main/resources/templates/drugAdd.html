@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Добавить препарат</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 ">
+    <h1 style="padding-bottom: 20px;">Добавить препарат</h1>
+    <form action="/drugAdd" method="post">
+        <input type="text" name="DrugName" placeholder="Название препарата" class="form-control"><br>
+        <input type="text" name="DrugDosage" placeholder="Дозировка" class="form-control"><br>
+        <input type="text" name="DrugManufacturer" placeholder="Страна-производитель" class="form-control"><br>
+        <input type="text" name="DrugContraindications" placeholder="Противопоказания" class="form-control"><br>
+        <input type="text" name="DrugUseTime" placeholder="Указания по применению" class="form-control"><br>
+        <input type="text" name="DrugSideEffects" placeholder="Побочные действия" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить препарат</button>
+    </form>
+</div>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

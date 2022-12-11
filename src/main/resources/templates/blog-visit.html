@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title>Все записи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+    <header th:insert="blocks/header :: header"></header>
+
+        <div class="container mt-5">
+            <h1 style="padding-bottom: 20px;">Все записи</h1>
+            <div th:each="el : ${visits}" class="alert alert-info mt-2">
+               <h3 th:text="'ID визита #' + ${el.visitCode}"></h3>
+                <h5 th:text="${el.visitDate}"></h5>
+                <h6 th:text="'ID пациента #'+ ${el.patient_PatientCode} + ' + симптомы: ' + ${el.visitSymptoms}"></h6>
+                <a th:href="'/visit/' + ${el.visitCode}" class="btn btn-warning">Подробнее</a>
+            </div>
+        </div>
+
+    <div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

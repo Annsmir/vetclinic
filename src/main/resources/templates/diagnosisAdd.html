@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Добавить диагноз</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 ">
+    <h1 style="padding-bottom: 20px;">Добавить диагноз</h1>
+    <form action="/diagnosisAdd" method="post">
+        <input type="text" name="DiagnosisName" placeholder="Название диагноза" class="form-control"><br>
+        <input type="text" name="DrugRecommendation" placeholder="Рекомендации препарат" class="form-control"><br>
+        <input type="text" name="TreatmentRecommendation" placeholder="Рекомендации по лечению" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить диагноз</button>
+    </form>
+</div>
+
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

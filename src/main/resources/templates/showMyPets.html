@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Мои животные</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1 style="padding-bottom: 20px;">Список моих животных</h1>
+    <div th:if="${el.ownerOwnerCode.ownerTelephone} == ${#authentication.getPrincipal().getUsername()}" th:each="el : ${patients}" class="alert alert-info mt-2">
+        <h3 th:text="'ID пацента #' + ${el.patientCode}"></h3>
+        <h5 th:text="'Кличка пациента: ' + ${el.patientName}"></h5>
+        <h5 th:text="'Дата рождения пациента: ' + ${el.patientBirthday}"></h5>
+        <h5 th:number="'Номер карты пациента: ' + ${el.patientCardNumber}"></h5>
+        <h5 th:text="'Категория пациента: '+ ${el.animalAnimalCategory.animalCategoryName}"></h5>
+        <h5 th:text="'Порода пациента: ' + ${el.patientBreed}"></h5>
+        <h5 th:text="'Пол пациента: ' + ${el.patientSex}"></h5>
+        <h5 th:text="'ФИ владельца: '+ ${el.ownerOwnerCode.ownerName}"></h5>
+        <h5 th:text="'Контактный телефон владельца: '+ ${el.ownerOwnerCode.ownerTelephone}"></h5>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

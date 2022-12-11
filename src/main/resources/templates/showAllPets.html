@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Все пациенты</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <h1 style="padding-bottom: 20px;">Список всех пациентов</h1>
+    <div th:each="el : ${patients}" class="alert alert-info mt-2">
+        <h3 th:text="'ID пацента #' + ${el.patientCode}"></h3>
+        <h5 th:text="'Кличка пациента: ' + ${el.patientName}"></h5>
+        <h5 th:text="'Дата рождения пациента: ' + ${el.patientBirthday}"></h5>
+        <h5 th:number="'Номер карты пациента: ' + ${el.patientCardNumber}"></h5>
+        <h5 th:text="'Категория пациента: '+ ${el.animalAnimalCategory.animalCategoryName}"></h5>
+        <h5 th:text="'Порода пациента: ' + ${el.patientBreed}"></h5>
+        <h5 th:text="'Пол пациента: ' + ${el.patientSex}"></h5>
+        <h5 th:text="'ФИ владельца: '+ ${el.ownerOwnerCode.ownerName}"></h5>
+        <h5 th:text="'Контактный телефон владельца: '+ ${el.ownerOwnerCode.ownerTelephone}"></h5>
+        <a th:href="'/patient/' + ${el.patientCode} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+        <form th:action="'/patient/' + ${el.patientCode} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+
+<a th:href="'/patientAdd'" style="margin-left: 150px" class="btn btn-warning">Добавить</a>
+
+<div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>
